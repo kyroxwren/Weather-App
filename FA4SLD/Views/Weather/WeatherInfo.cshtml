@@ -1,0 +1,87 @@
+﻿@model FA4SLD.Controllers.WeatherResponse
+
+@{
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Weather Information</title>
+    <style>
+        :root {
+            --orange-color: #ff7b02;
+            --darkorange-color: #c36300;
+            --darkblue-color: #001e2d;
+            --lightblue-color: lightblue;
+            --gray-color: gray;
+        }
+
+        * {
+            
+            color: var(--gray-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #003347;
+        }
+
+        .center-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+            .center-content h1 {
+                font-size: 3rem;
+                color: var(--orange-color);
+                margin-top: 50px;
+                margin-bottom:50px;
+            }
+
+        .row {
+            font-size: 1.2rem;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 2vh;
+        }
+
+            .row img {
+                width: 50px;
+                display: inline-block;
+                margin-right: 10px;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="center-content">
+
+        <h1>Weather Information for @Model.Name</h1>
+
+        <div class="row">
+            <img src="https://cdn-icons-png.flaticon.com/512/1090/1090683.png"> <p>Temperature: @Model.Main.Temp.ToString("0") °C</p>
+        </div>
+        <div class="row">
+            <img src="https://cdn-icons-png.flaticon.com/512/2562/2562265.png"> <p>Pressure: @Model.Main.Pressure</p>
+
+        </div>
+        <div class="row">
+            <img src="https://cdn-icons-png.flaticon.com/512/3262/3262966.png"> <p>Humidity: @Model.Main.Humidity %</p>
+        </div>
+        <div class="row">
+            <img src="https://www.shareicon.net/data/2015/09/07/97241_wind_512x512.png"> <p>Wind Speed: @Model.Wind.Speed Km/h</p>
+        </div>
+        
+
+
+
+    </div>
+
+</body>
+</html>

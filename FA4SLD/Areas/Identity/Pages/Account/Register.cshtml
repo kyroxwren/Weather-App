@@ -1,0 +1,77 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<link href="~/css/SignIn.css" />
+<link href="~/css/SignIn.css" rel="stylesheet" />
+
+<style>
+
+.password-requirements {
+  background-color: transparent;
+  padding: 10px;
+  margin-left:800px;
+  color:white;
+  margin-top:-300px;
+}
+
+</style>
+
+<body>
+    
+    <div class="page">
+        <div class="box">
+            <span class="borderline"></span>
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h2 style="color:#ff7b02;">@ViewBag.Title</h2>
+                <div class="inputBox">
+                    <input asp-for="Input.Email" autocomplete="username" aria-required="true" required />
+                    <span>Email</span>
+                </div>
+                <div class="inputBox">
+                    <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" required />
+                    <span>Password</span>
+                </div>
+                <div class="inputBox">
+                    <input asp-for="Input.ConfirmPassword" autocomplete="new-password" aria-required="true" required />
+                    <span>Confirm Password</span>
+                    <div id="confirm-password-message"></div>
+                </div>
+
+                <button id="registerSubmit" type="submit" class="submit-button">Sign In</button>
+            </form>
+        </div>
+        <div class=" password-requirements">
+            <!-- Added password-requirements class -->
+            Password requirements:
+            <ul>
+                <li>Greater than 6 characters</li>
+                <li>Uppercase and lowercase letters</li>
+                <li>Special character</li>
+                <li>Numbers</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const passwordInput = document.querySelector('input[name="Input.Password"]');
+    const confirmPasswordInput = document.querySelector('input[name="Input.ConfirmPassword"]');
+    const confirmPasswordMessage = document.getElementById('confirm-password-message');
+
+    confirmPasswordInput.addEventListener('input', () => {
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            confirmPasswordMessage.textContent = "Passwords don't match.";
+            confirmPasswordMessage.style.color = "red";
+        } else {
+            confirmPasswordMessage.textContent = "";
+        }
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

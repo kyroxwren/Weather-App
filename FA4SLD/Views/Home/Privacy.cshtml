@@ -1,0 +1,136 @@
+﻿@{
+    
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Weather Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange-color: #ff7b02;
+            --darkorange-color: #c36300;
+            --darkblue-color: #001e2d;
+            --lightblue-color: lightblue;
+            --gray-color: gray;
+        }
+
+        * {
+            
+            color: var(--gray-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+
+        body{
+            background-color: #003347;
+        }
+
+        .center-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+            .center-content img {
+                height: 200px;
+            }
+
+            .center-content h1 {
+                font-size: 3rem;
+                color: var(--orange-color);
+                margin-top:30px;
+            }
+
+        .text-box {
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 1px solid var(--gray-color);
+            border-radius: 8px;
+            outline: none;
+            background-color: #003347;
+        }
+
+        .button-19 {
+            appearance: button;
+            background-color: var(--darkorange-color);
+            border: solid transparent;
+            border-radius: 8px;
+            border-width: 0 0 4px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            letter-spacing: .8px;
+            line-height: 20px;
+            margin: 0;
+            outline: none;
+            overflow: visible;
+            padding: 13px 16px;
+            text-align: center;
+            text-transform: uppercase;
+            touch-action: manipulation;
+            transform: translateZ(0);
+            transition: filter .2s;
+            user-select: none;
+            -webkit-user-select: none;
+            vertical-align: middle;
+            white-space: nowrap;
+            width: 150px;
+        }
+
+            .button-19:after {
+                background-clip: padding-box;
+                background-color: var(--orange-color);
+                border: solid transparent;
+                border-radius: 16px;
+                border-width: 0 0 4px;
+                bottom: -4px;
+                content: "";
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                z-index: -1;
+            }
+
+            .button-19:main,
+            .button-19:focus {
+                user-select: auto;
+            }
+
+            .button-19:hover:not(:disabled) {
+                filter: brightness(1.1);
+                -webkit-filter: brightness(1.1);
+            }
+
+            .button-19:disabled {
+                cursor: auto;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="center-content">
+
+        <h1>Weather Search</h1>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4052/4052984.png" alt="Weather Image">
+
+        <form asp-controller="Weather" asp-action="GetWeatherInfo" method="post">
+            <input class="text-box" type="text" name="city" placeholder="Enter city name" required />
+            <br><br>
+            <button class="button-19" type="submit">Get Weather</button>
+        </form>
+
+    </div>
+
+</body>
+</html>

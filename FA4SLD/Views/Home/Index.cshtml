@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauteng Weather</title>
+    <style>
+        :root {
+            --color-primary: #ff7b02;
+            --color-primary-variant: #e5a55d;
+            --color-bg-1: #000e17;
+            --color-bg-2: #001e2d;
+            --color-bg-3: #012734;
+            --color-bg-4: #003347;
+            --color-light: #85a2b2;
+            --color-white: hsl(0, 0%, 90%);
+            --color-button: #ff7b02;
+        }
+
+        body {
+            background-color: var(--color-bg-4);
+            color: var(--color-light);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+
+        }
+
+        h1 {
+            color: var(--color-primary);
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            list-style: none; /* Remove bullets */
+            padding: 0; /* Reset default padding */
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-button);
+            color: var(--color-white);
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0 100px; /* Adjust the margin as needed */
+        }
+
+            .btn:hover {
+                background-color: var(--color-primary-variant);
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+                transform: translateY(-2px);
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-left:120px;">Welcome to Gauteng Weather</h1>
+        <img src="~/lib/Asset 7.png" alt="Gauteng Weather Image" style="margin-left:190px;" width="300" height="150">
+        <p style="margin-left:50px;">Register and log in to search for the weather in different locations of Gauteng.</p>
+        <p style="margin-left:190px;">Get real-time updates, forecasts, and more!</p>
+        <p>Stay informed about the weather conditions in Gauteng and plan your day accordingly.</p>
+        <div class="nav-items">
+            <li class="nav-item">
+                <a class="btn" style="color:white;" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn" style="color:white;" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+        </div>
+    </div>
+</body>
+
+</html>

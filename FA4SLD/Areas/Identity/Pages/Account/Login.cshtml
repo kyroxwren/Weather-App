@@ -1,0 +1,50 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<link href="~/css/SignIn.css" />
+<link href="~/css/SignIn.css" rel="stylesheet" />
+
+<div class="page">
+    <div class="box">
+        <span class="borderline"></span>
+        <form id="account" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div> <!-- Modified validation summary -->
+            <br />
+            <h2 style="color:#ff7b02; margin-top:-10px;">@ViewData["Title"]</h2>
+            <div class="inputBox">
+                <input asp-for="Input.Email" autocomplete="username" aria-required="true" required />
+                <span>Email</span>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="inputBox">
+                <input asp-for="Input.Password" autocomplete="new-password" aria-required="true" required />
+                <span>Password</span>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div> <!-- Display model-level errors -->
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="text-danger">@Model.ErrorMessage</div> <!-- Display "Invalid login attempt" error message -->
+                }
+            </div>
+            <div>
+                <button id="login-submit" type="submit" class="submit-button">Log in</button>
+            </div>
+            <div>
+                <p>
+                    <a id="forgot-password" style="color:white; text-decoration:none;" asp-page="./ForgotPassword">Forgot your password?</a>
+                </p>
+                <p>
+                    <a asp-page="./Register" style="color:white; text-decoration:none;" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
